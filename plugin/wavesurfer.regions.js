@@ -138,6 +138,8 @@ WaveSurfer.Region = {
         this.maxLength = params.maxLength;
         this.minLength = params.minLength;
 
+        this.title = params.title;
+
         this.bindInOut();
         this.render();
 
@@ -214,7 +216,7 @@ WaveSurfer.Region = {
     render: function () {
         var regionEl = document.createElement('region');
         regionEl.className = 'wavesurfer-region';
-        regionEl.title = this.formatTime(this.start, this.end);
+        regionEl.title = this.title;
         regionEl.setAttribute('data-id', this.id);
 
         for (var attrname in this.attributes) {
@@ -309,7 +311,7 @@ WaveSurfer.Region = {
                 this.element.setAttribute('data-region-' + attrname, this.attributes[attrname]);
             }
 
-            this.element.title = this.formatTime(this.start, this.end);
+            this.element.title = this.title;
         }
     },
 
